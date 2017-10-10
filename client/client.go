@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net"
+	"time"
 )
 
 func main() {
@@ -15,9 +16,13 @@ func main() {
 	defer conn.Close()
 
 	//simple write
-	conn.Write([]byte("Hello from client"))
+	conn.Write([]byte("Hello from client 1"))
+
+	time.Sleep(2 * time.Second)
+
+	conn.Write([]byte("Hello from client two"))
 
 	//simple Read
-	buffer := make([]byte, 1024)
-	conn.Read(buffer)
+	//buffer := make([]byte, 1024)
+	//conn.Read(buffer)
 }
